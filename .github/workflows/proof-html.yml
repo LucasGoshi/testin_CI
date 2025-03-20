@@ -1,0 +1,34 @@
+name: Proof HTML
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  proof-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Construir o Projeto
+        run: npm run build
+
+      - name: Validar HTML
+        uses: Cyb3r-Jak3/proof-html@v1.2
+        with:
+          directory: build
+          ignorefiles: "build/ignore-these-files.txt"
