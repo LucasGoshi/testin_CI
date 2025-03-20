@@ -27,8 +27,9 @@ jobs:
       - name: Construir o Projeto
         run: npm run build
 
-      - name: Validar HTML
-        uses: Cyb3r-Jak3/proof-html@main
-        with:
-          directory: build
-          ignorefiles: "build/ignore-these-files.txt"
+      - name: Instalar html-validate
+        run: npm install -D html-validate
+
+      - name: Validar HTML com html-validate
+        run: npx html-validate "build/**/*.html"
+
