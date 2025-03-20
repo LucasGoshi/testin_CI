@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Validar HTML
-        uses: Cyb3r-Jak3/proof-html@v1.2
+        uses: Cyb3r-Jak3/proof-html@main
         with:
           directory: build
           ignorefiles: "build/ignore-these-files.txt"
