@@ -16,7 +16,7 @@ Este é um projeto React com integração contínua via GitHub Actions. O foco p
 ## ▶️ Como rodar o projeto localmente
 ```bash
 1. **Clone o repositório**
-git clone https://github.com/LucasGoshi/proof-html-demo.git
+git clone https://github.com/LucasGoshi/testin_CI.git
 cd proof-html-demo
 
 2. **Instale as dependências**
