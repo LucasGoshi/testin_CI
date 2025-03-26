@@ -4,15 +4,6 @@ Este é um projeto React com integração contínua via GitHub Actions. O foco p
 
 ---
 
-## 📦 Tecnologias
-
-- [React](https://reactjs.org/)
-- [html-validate](https://html-validate.org/) – Validador de HTML
-- [Jest](https://jestjs.io/) – Testes automatizados
-- [GitHub Actions](https://docs.github.com/en/actions) – Integração contínua
-
----
-
 ## ▶️ Como rodar o projeto localmente
 ```bash
 1. **Clone o repositório**
