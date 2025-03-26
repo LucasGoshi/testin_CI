@@ -29,11 +29,3 @@ jobs:
         run: |
           echo "Rodando testes..."
           npm test -- --watchAll=false
-
-      - name: Retorno de status personalizado
-        if: success()
-        run: echo "Resultado: ✅ OK"
-
-      - name: Retorno de falha personalizada
-        if: failure()
-        run: echo "Resultado: ❌ NOOK"
