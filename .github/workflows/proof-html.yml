@@ -1,4 +1,4 @@
-name: Proof HTML
+name: Teste de Projeto React
 
 on:
   push:
@@ -10,26 +10,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  proof-html:
+  test-react:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout do Código
+      - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Instalar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22.x
+          node-version: 18
 
-      - name: Instalar Dependências
+      - name: Instalar dependências
         run: npm install
 
-      - name: Construir o Projeto
-        run: npm run build
+      - name: Rodar testes
+        run: |
+          echo "Rodando testes..."
+          npm test -- --watchAll=false
 
-      - name: Instalar html-validate
-        run: npm install -D html-validate
+      - name: Retorno de status personalizado
+        if: success()
+        run: echo "Resultado: ✅ OK"
 
-      - name: Validar HTML com html-validate
-        run: npx html-validate "build/**/*.html"
-
+      - name: Retorno de falha personalizada
+        if: failure()
+        run: echo "Resultado: ❌ NOOK"
