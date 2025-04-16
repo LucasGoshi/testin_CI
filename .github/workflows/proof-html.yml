@@ -14,25 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do código
+      - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'  # Cache dos pacotes para acelerar builds
 
-      - name: 📦 Instalar dependências
-        run: npm ci    # Melhor que 'npm install' para CI (mais rápido e previsível)
+      - name: Instalar dependências
+        run: npm ci   
 
-      - name: 🧪 Rodar testes
+      - name: Rodar testes
         run: npm test -- --watchAll=false
         env:
           CI: true      # Garante comportamento de CI em bibliotecas como React Testing Library
 
-      - name: 🛠️ Build do projeto
+      - name: Build do projeto
         run: npm run build
 
-      - name: ✅ Validação de HTML (opcional)
+      - name: Validação de HTML (opcional)
         run: npx html-validate "build/**/*.html"
