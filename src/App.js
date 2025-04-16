@@ -19,7 +19,7 @@ function App() {
         </a>
 
         <input
-  type="text"
+  type="number"
   placeholder="Digite um número"
   aria-label="number-input"
 />
