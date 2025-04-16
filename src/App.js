@@ -17,6 +17,13 @@ function App() {
         >
           Learn React
         </a>
+
+        <input
+  type="text"
+  placeholder="Digite um número"
+  aria-label="number-input"
+/>
+
       </header>
     </div>
   );

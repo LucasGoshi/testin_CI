@@ -1,7 +1,14 @@
-test('✅ Soma de 5 + 3 deve ser igual a 8', () => {
-  expect(Number('5') + Number('3')).toBe(8);
-});
+import { render, screen, fireEvent } from '@testing-library/react';
+import App from './App';
 
-test('❌ Soma de "a" + 3 deve resultar em NaN', () => {
-  expect(Number('a') + Number('3')).toBeNaN();
+test('exibe erro ao digitar uma string no campo numérico', () => {
+  render(<App />);
+  
+  const input = screen.getByLabelText('number-input');
+  
+  fireEvent.change(input, { target: { value: 'abc' } });
+
+  // Esse texto ainda não existe no app, então o teste vai falhar
+  const errorMessage = screen.getByText(/apenas números são permitidos/i);
+  expect(errorMessage).toBeInTheDocument();
 });
