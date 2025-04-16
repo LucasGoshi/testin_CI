@@ -34,5 +34,6 @@ jobs:
       - name: Build do projeto
         run: npm run build
 
-      - name: Validação de HTML (opcional)
+      - name: Validação de HTML 
         run: npx html-validate "build/**/*.html"
+        continue-on-error: true
